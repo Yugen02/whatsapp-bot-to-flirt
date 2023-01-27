@@ -5,6 +5,12 @@ import pandas as pd
 import numpy as np
 from tqdm import tqdm
 
+## STEP 1
+## put the phone number
+phone_number = '########'
+
+## STEP 2
+## add all the firt that you want to send, in this case are in spanish version
 df = pd.DataFrame({'piropos':
         ['Si me dedicas una sonrisa pasas de ser linda a perfecta',
         '¿Qué pasó en el cielo que se están cayendo los ángeles?',
@@ -119,9 +125,10 @@ print(df)
 shuffled = df.sample(frac=1).reset_index()
 
 for i in tqdm(shuffled['piropos']):
+    ## You can add the time that you want to send the text in seconds
     sec = time.time() + 60
     date = datetime.fromtimestamp(sec)
-    pywhatkit.sendwhatmsg('+50766430130',
+    pywhatkit.sendwhatmsg('####-####',
                             i,
                             date.hour,
                             date.minute
